@@ -1,332 +1,552 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suivi Santé - MediCare</title>
-    <link href="../dist/output.css" rel="stylesheet">
-    <style>
-        html, body {
-            height: 100%;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-        main {
-            flex: 1 0 auto;
-        }
-        footer {
-            flex-shrink: 0;
-        }
-        .error-message {
-            color: #ef4444;
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
-        }
-        .success-message {
-            color: #10b981;
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
-        }
-        .health-indicator-good {
-            background-color: #10b981;
-        }
-        .health-indicator-warning {
-            background-color: #f59e0b;
-        }
-        .health-indicator-danger {
-            background-color: #ef4444;
-        }
-        .health-status-good {
-            color: #10b981;
-            font-weight: 600;
-        }
-        .health-status-warning {
-            color: #f59e0b;
-            font-weight: 600;
-        }
-        .health-status-danger {
-            color: #ef4444;
-            font-weight: 600;
-        }
-    </style>
-</head>
-<body class="bg-gray-100 font-sans">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Suivi Santé - MediCare</title>
+		<link href="../dist/output.css" rel="stylesheet" />
+		<style>
+			html,
+			body {
+				height: 100%;
+			}
+			body {
+				display: flex;
+				flex-direction: column;
+			}
+			main {
+				flex: 1 0 auto;
+			}
+			footer {
+				flex-shrink: 0;
+			}
+			.error-message {
+				color: #ef4444;
+				font-size: 0.875rem;
+				margin-top: 0.25rem;
+			}
+			.success-message {
+				color: #10b981;
+				font-size: 0.875rem;
+				margin-top: 0.25rem;
+			}
+			.health-indicator-good {
+				background-color: #10b981;
+			}
+			.health-indicator-warning {
+				background-color: #f59e0b;
+			}
+			.health-indicator-danger {
+				background-color: #ef4444;
+			}
+			.health-status-good {
+				color: #10b981;
+				font-weight: 600;
+			}
+			.health-status-warning {
+				color: #f59e0b;
+				font-weight: 600;
+			}
+			.health-status-danger {
+				color: #ef4444;
+				font-weight: 600;
+			}
+		</style>
+	</head>
+	<body class="bg-gray-100 font-sans dark:bg-gray-900">
+		<!-- Header -->
+		<header class="fixed top-0 left-0 z-50 w-full">
+			<nav
+				class="bg-blue-950 px-4 md:px-10 py-4 flex flex-wrap justify-between items-center shadow-md dark:bg-blue-900"
+			>
+				<!-- Logo -->
+				<a href="../index.html">
+					<div class="flex items-center space-x-3 cursor-pointer">
+						<img
+							src="../assets/health_logo.png"
+							alt="MediCare Logo"
+							class="h-10 w-10 md:h-12 md:w-12 object-contain"
+						/>
+						<span class="text-white text-lg md:text-xl font-bold"
+							>MediCare</span
+						>
+					</div>
+				</a>
 
-    <!-- Header -->
-    <header class="fixed top-0 left-0 z-50 w-full">
-        <nav class="bg-blue-950 px-4 md:px-10 py-4 flex flex-wrap justify-between items-center shadow-md">
-            
-            <!-- Logo -->
-            <a href="../index.html">
-                <div class="flex items-center space-x-3 cursor-pointer">
-                    <img src="../assets/health_logo.png" alt="MediCare Logo" class="h-10 w-10 md:h-12 md:w-12 object-contain">
-                    <span class="text-white text-lg md:text-xl font-bold">MediCare</span>
-                </div>
-            </a>
+				<!-- Search Bar -->
+				<div
+					class="relative max-w-xs w-1/2 md:w-2/3 lg:w-1/3 bg-amber-50 dark:bg-gray-800 rounded-full"
+				>
+					<img
+						src="../assets/search-icone.svg"
+						alt=""
+						aria-hidden="true"
+						class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none"
+					/>
+					<input
+						type="search"
+						placeholder="Rechercher..."
+						class="block w-full pl-10 pr-3 py-2 rounded-full border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
+					/>
+				</div>
 
-            <!-- Search Bar -->
-            <div class="relative max-w-xs w-1/2 md:w-2/3 lg:w-1/3 bg-amber-50 rounded-full">
-                <img src="../assets/search-icone.svg" alt="" aria-hidden="true"
-                    class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none">
-                <input type="search" placeholder="Rechercher..."
-                    class="block w-full pl-10 pr-3 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base">
-            </div>
+				<div class="flex items-center space-x-4 md:space-x-6">
+					<!-- Light/Dark toggle -->
+					<div class="flex items-center">
+						<label
+							for="checkbox"
+							class="flex bg-gray-600 cursor-pointer relative w-14 h-7 md:w-16 md:h-8 rounded-full overflow-hidden"
+						>
+							<input
+								type="checkbox"
+								id="checkbox"
+								name="themeToggle"
+								class="sr-only peer"
+								aria-label="Basculer le mode clair/sombre"
+								title="Basculer le mode clair/sombre"
+							/>
+							<div
+								class="w-6 h-6 md:w-8 md:h-8 bg-white rounded-full shadow-md transform peer-checked:translate-x-7 md:peer-checked:translate-x-8 transition-transform duration-300 ease-in-out"
+							></div>
+							<div
+								class="absolute left-0 top-0 w-full h-full flex items-center justify-between px-1 md:px-2 text-gray-200 text-sm"
+							>
+								<img
+									src="../assets/sun-icone.svg"
+									alt="Light mode"
+									class="w-3 h-3 md:w-4 md:h-4"
+									aria-hidden="true"
+								/>
+								<img
+									src="../assets/moon-icone.svg"
+									alt="Dark mode"
+									class="w-3 h-3 md:w-4 md:h-4"
+									aria-hidden="true"
+								/>
+							</div>
+						</label>
+					</div>
 
-            <div class="flex items-center space-x-4 md:space-x-6">
-                <!-- Light/Dark toggle -->
-                <div class="flex items-center">
-                    <label for="checkbox" class="flex bg-gray-600 cursor-pointer relative w-14 h-7 md:w-16 md:h-8 rounded-full overflow-hidden">
-                        <input type="checkbox" id="checkbox" name="themeToggle" class="sr-only peer" aria-label="Basculer le mode clair/sombre" title="Basculer le mode clair/sombre"/>
-                        <div class="w-6 h-6 md:w-8 md:h-8 bg-white rounded-full shadow-md transform peer-checked:translate-x-7 md:peer-checked:translate-x-8 transition-transform duration-300 ease-in-out"></div>
-                        <div class="absolute left-0 top-0 w-full h-full flex items-center justify-between px-1 md:px-2 text-gray-200 text-sm">
-                            <img src="../assets/sun-icone.svg" alt="Light mode" class="w-3 h-3 md:w-4 md:h-4" aria-hidden="true">
-                            <img src="../assets/moon-icone.svg" alt="Dark mode" class="w-3 h-3 md:w-4 md:h-4" aria-hidden="true">
-                        </div>
-                    </label>
-                </div>
+					<!-- burger menu -->
+					<div class="lg:hidden">
+						<button
+							id="burger"
+							class="text-white focus:outline-none cursor-pointer"
+							title="Ouvrir le menu"
+							aria-label="Ouvrir le menu"
+							aria-controls="mobile-menu"
+							aria-expanded="false"
+						>
+							<span class="sr-only">Ouvrir le menu</span>
+							<span
+								class="block w-5 h-0.5 md:w-6 md:h-0.5 bg-white mb-1 md:mb-1.5"
+							></span>
+							<span
+								class="block w-5 h-0.5 md:w-6 md:h-0.5 bg-white mb-1 md:mb-1.5"
+							></span>
+							<span class="block w-5 h-0.5 md:w-6 md:h-0.5 bg-white"></span>
+						</button>
+					</div>
 
-                <!-- burger menu -->
-                <div class="lg:hidden">
-                    <button id="burger" class="text-white focus:outline-none cursor-pointer" title="Ouvrir le menu" aria-label="Ouvrir le menu" aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Ouvrir le menu</span>
-                        <span class="block w-5 h-0.5 md:w-6 md:h-0.5 bg-white mb-1 md:mb-1.5"></span>
-                        <span class="block w-5 h-0.5 md:w-6 md:h-0.5 bg-white mb-1 md:mb-1.5"></span>
-                        <span class="block w-5 h-0.5 md:w-6 md:h-0.5 bg-white"></span>
-                    </button>
-                </div>
+					<!-- Navigation links -->
+					<div class="hidden lg:block">
+						<ul
+							class="flex space-x-4 md:space-x-6 text-white font-semibold items-center text-sm md:text-base"
+						>
+							<li>
+								<a href="../index.html" class="hover:text-amber-300">home</a>
+							</li>
+							<li>
+								<a href="Médecins.html" class="hover:text-amber-300"
+									>médecins</a
+								>
+							</li>
+							<li>
+								<a href="Rendez-vous.html" class="hover:text-amber-300"
+									>réservations</a
+								>
+							</li>
+							<li>
+								<a href="Suivi-santé.html" class="text-amber-300">suivi</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
 
-                <!-- Navigation links -->
-                <div class="hidden lg:block">
-                    <ul class="flex space-x-4 md:space-x-6 text-white font-semibold items-center text-sm md:text-base">
-                        <li><a href="../index.html" class="hover:text-amber-300">home</a></li>
-                        <li><a href="Médecins.html" class="hover:text-amber-300">médecins</a></li>
-                        <li><a href="Rendez-vous.html" class="hover:text-amber-300">réservations</a></li>
-                        <li><a href="Suivi-santé.html" class="text-amber-300">suivi</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+			<!-- Mobile Menu -->
+			<div
+				id="mobile-menu"
+				class="hidden lg:hidden cursor-pointer bg-blue-900 dark:bg-blue-800"
+			>
+				<ul class="flex flex-col space-y-4 p-6 text-white font-semibold">
+					<li>
+						<a href="../index.html" class="block py-2 hover:text-amber-300"
+							>home</a
+						>
+					</li>
+					<li>
+						<a href="Médecins.html" class="block py-2 hover:text-amber-300"
+							>médecins</a
+						>
+					</li>
+					<li>
+						<a href="Rendez-vous.html" class="block py-2 hover:text-amber-300"
+							>réservations</a
+						>
+					</li>
+					<li>
+						<a href="Suivi-santé.html" class="block py-2 text-amber-300"
+							>suivi</a
+						>
+					</li>
+				</ul>
+			</div>
+		</header>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden cursor-pointer bg-blue-900">
-            <ul class="flex flex-col space-y-4 p-6 text-white font-semibold">
-                <li><a href="../index.html" class="block py-2 hover:text-amber-300">home</a></li>
-                <li><a href="Médecins.html" class="block py-2 hover:text-amber-300">médecins</a></li>
-                <li><a href="Rendez-vous.html" class="block py-2 hover:text-amber-300">réservations</a></li>
-                <li><a href="Suivi-santé.html" class="block py-2 text-amber-300">suivi</a></li>
-            </ul>
-        </div>
-    </header>
+		<main class="mt-16 md:mt-20">
+			<!-- Page Header -->
+			<section class="bg-blue-600 text-white py-12">
+				<div class="max-w-6xl mx-auto px-4 text-center">
+					<h1 class="text-3xl md:text-4xl font-bold mb-4">Suivi de Santé</h1>
+					<p class="text-lg md:text-xl">
+						Surveillez vos indicateurs de santé au quotidien
+					</p>
+				</div>
+			</section>
 
-    <main class="mt-16 md:mt-20">
-        <!-- Page Header -->
-        <section class="bg-blue-600 text-white py-12">
-            <div class="max-w-6xl mx-auto px-4 text-center">
-                <h1 class="text-3xl md:text-4xl font-bold mb-4">Suivi de Santé</h1>
-                <p class="text-lg md:text-xl">Surveillez vos indicateurs de santé au quotidien</p>
-            </div>
-        </section>
+			<!-- Main Content -->
+			<section class="py-8">
+				<div class="max-w-6xl mx-auto px-4">
+					<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+						<!-- Health Metrics Form -->
+						<div
+							class="lg:col-span-1 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6"
+						>
+							<h2
+								class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6"
+							>
+								Nouvelle Mesure
+							</h2>
 
-        <!-- Main Content -->
-        <section class="py-8">
-            <div class="max-w-6xl mx-auto px-4">
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    
-                    <!-- Health Metrics Form -->
-                    <div class="lg:col-span-1 bg-white rounded-lg shadow-md p-6">
-                        <h2 class="text-2xl font-bold text-gray-800 mb-6">Nouvelle Mesure</h2>
-                        
-                        <form id="healthForm" class="space-y-6">
-                            <!-- Date -->
-                            <div>
-                                <label for="measurementDate" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Date *
-                                </label>
-                                <input type="date" id="measurementDate" name="measurementDate"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200">
-                                <div id="dateError" class="error-message hidden">Veuillez sélectionner une date valide</div>
-                            </div>
+							<form id="healthForm" class="space-y-6">
+								<!-- Date -->
+								<div>
+									<label
+										for="measurementDate"
+										class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2"
+									>
+										Date *
+									</label>
+									<input
+										type="date"
+										id="measurementDate"
+										name="measurementDate"
+										class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+									/>
+									<div id="dateError" class="error-message hidden">
+										Veuillez sélectionner une date valide
+									</div>
+								</div>
 
-                            <!-- Weight -->
-                            <div>
-                                <label for="weight" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Poids (kg) *
-                                </label>
-                                <input type="number" id="weight" name="weight" step="0.1" min="30" max="200"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                    placeholder="Ex: 68.5">
-                                <div id="weightError" class="error-message hidden">Le poids doit être entre 30 et 200 kg</div>
-                            </div>
+								<!-- Weight -->
+								<div>
+									<label
+										for="weight"
+										class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2"
+									>
+										Poids (kg) *
+									</label>
+									<input
+										type="number"
+										id="weight"
+										name="weight"
+										step="0.1"
+										min="30"
+										max="200"
+										class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+										placeholder="Ex: 68.5"
+									/>
+									<div id="weightError" class="error-message hidden">
+										Le poids doit être entre 30 et 200 kg
+									</div>
+								</div>
 
-                            <!-- Blood Pressure -->
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label for="systolic" class="block text-sm font-medium text-gray-700 mb-2">
-                                        Tension Sys *
-                                    </label>
-                                    <input type="number" id="systolic" name="systolic" min="70" max="200"
-                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                        placeholder="Ex: 120">
-                                    <div id="systolicError" class="error-message hidden">La tension systolique doit être entre 70 et 200</div>
-                                </div>
-                                <div>
-                                    <label for="diastolic" class="block text-sm font-medium text-gray-700 mb-2">
-                                        Tension Dia *
-                                    </label>
-                                    <input type="number" id="diastolic" name="diastolic" min="40" max="130"
-                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                        placeholder="Ex: 80">
-                                    <div id="diastolicError" class="error-message hidden">La tension diastolique doit être entre 40 et 130</div>
-                                </div>
-                            </div>
+								<!-- Blood Pressure -->
+								<div class="grid grid-cols-2 gap-4">
+									<div>
+										<label
+											for="systolic"
+											class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2"
+										>
+											Tension Sys *
+										</label>
+										<input
+											type="number"
+											id="systolic"
+											name="systolic"
+											min="70"
+											max="200"
+											class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+											placeholder="Ex: 120"
+										/>
+										<div id="systolicError" class="error-message hidden">
+											La tension systolique doit être entre 70 et 200
+										</div>
+									</div>
+									<div>
+										<label
+											for="diastolic"
+											class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2"
+										>
+											Tension Dia *
+										</label>
+										<input
+											type="number"
+											id="diastolic"
+											name="diastolic"
+											min="40"
+											max="130"
+											class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+											placeholder="Ex: 80"
+										/>
+										<div id="diastolicError" class="error-message hidden">
+											La tension diastolique doit être entre 40 et 130
+										</div>
+									</div>
+								</div>
 
-                            <!-- Blood Sugar -->
-                            <div>
-                                <label for="bloodSugar" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Glycémie (mg/dL) *
-                                </label>
-                                <input type="number" id="bloodSugar" name="bloodSugar" min="50" max="300"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                    placeholder="Ex: 95">
-                                <div id="bloodSugarError" class="error-message hidden">La glycémie doit être entre 50 et 300 mg/dL</div>
-                            </div>
+								<!-- Blood Sugar -->
+								<div>
+									<label
+										for="bloodSugar"
+										class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2"
+									>
+										Glycémie (mg/dL) *
+									</label>
+									<input
+										type="number"
+										id="bloodSugar"
+										name="bloodSugar"
+										min="50"
+										max="300"
+										class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+										placeholder="Ex: 95"
+									/>
+									<div id="bloodSugarError" class="error-message hidden">
+										La glycémie doit être entre 50 et 300 mg/dL
+									</div>
+								</div>
 
-                            <!-- Notes -->
-                            <div>
-                                <label for="healthNotes" class="block text-sm font-medium text-gray-700 mb-2">
-                                    Notes (optionnel)
-                                </label>
-                                <textarea id="healthNotes" name="healthNotes" rows="3"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                    placeholder="Commentaires sur votre état..."></textarea>
-                            </div>
+								<!-- Notes -->
+								<div>
+									<label
+										for="healthNotes"
+										class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2"
+									>
+										Notes (optionnel)
+									</label>
+									<textarea
+										id="healthNotes"
+										name="healthNotes"
+										rows="3"
+										class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+										placeholder="Commentaires sur votre état..."
+									></textarea>
+								</div>
 
-                            <!-- Submit Button -->
-                            <div>
-                                <button type="submit"
-                                    class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                                    Ajouter la Mesure
-                                </button>
-                            </div>
+								<!-- Submit Button -->
+								<div>
+									<button
+										type="submit"
+										class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+									>
+										Ajouter la Mesure
+									</button>
+								</div>
 
-                            <!-- Success Message -->
-                            <div id="successMessage" class="success-message hidden text-center">
-                                Mesure ajoutée avec succès !
-                            </div>
-                        </form>
-                    </div>
+								<!-- Success Message -->
+								<div
+									id="successMessage"
+									class="success-message hidden text-center"
+								>
+									Mesure ajoutée avec succès !
+								</div>
+							</form>
+						</div>
 
-                    <!-- Health Overview & Measurements List -->
-                    <div class="lg:col-span-2 space-y-8">
-                        
-                        <!-- Health Overview -->
-                        <div class="bg-white rounded-lg shadow-md p-6">
-                            <h2 class="text-2xl font-bold text-gray-800 mb-6">Aperçu de Santé</h2>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <!-- Weight Overview -->
-                                <div class="text-center p-4 bg-gray-50 rounded-lg">
-                                    <h3 class="font-semibold text-gray-700 mb-2">Poids Moyen</h3>
-                                    <div class="flex items-center justify-center space-x-2 mb-2">
-                                        <span class="text-3xl font-bold text-gray-800" id="averageWeight">-</span>
-                                        <span class="text-gray-600">kg</span>
-                                    </div>
-                                    <div class="health-indicator p-2 rounded-lg" id="weightIndicator">
-                                        <span class="text-sm font-medium" id="weightStatus">-</span>
-                                    </div>
-                                </div>
+						<!-- Health Overview & Measurements List -->
+						<div class="lg:col-span-2 space-y-8">
+							<!-- Health Overview -->
+							<div class="bg-white rounded-lg shadow-md p-6 dark:bg-gray-800">
+								<h2
+									class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6"
+								>
+									Aperçu de Santé
+								</h2>
 
-                                <!-- Blood Pressure Overview -->
-                                <div class="text-center p-4 bg-gray-50 rounded-lg">
-                                    <h3 class="font-semibold text-gray-700 mb-2">Tension Moyenne</h3>
-                                    <div class="flex items-center justify-center space-x-2 mb-2">
-                                        <span class="text-3xl font-bold text-gray-800" id="averageBP">-</span>
-                                        <span class="text-gray-600">mmHg</span>
-                                    </div>
-                                    <div class="health-indicator p-2 rounded-lg" id="bpIndicator">
-                                        <span class="text-sm font-medium" id="bpStatus">-</span>
-                                    </div>
-                                </div>
+								<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+									<!-- Weight Overview -->
+									<div class="text-center p-4 bg-gray-50 rounded-lg dark:bg-gray-700 ">
+										<h3 class="font-semibold text-gray-700 mb-2 dark:text-gray-200">
+											Poids Moyen
+										</h3>
+										<div
+											class="flex items-center justify-center space-x-2 mb-2 dark:text-gray-200"
+										>
+											<span
+												class="text-3xl font-bold text-gray-800 dark:text-gray-100"
+												id="averageWeight"
+												>-</span
+											>
+											<span class="text-gray-600 dark:text-gray-400">kg</span>
+										</div>
+										<div
+											class="health-indicator p-2 rounded-lg dark:bg-gray-700"
+											id="weightIndicator"
+										>
+											<span class="text-sm font-medium dark:text-gray-200" id="weightStatus"
+												>-</span
+											>
+										</div>
+									</div>
 
-                                <!-- Blood Sugar Overview -->
-                                <div class="text-center p-4 bg-gray-50 rounded-lg">
-                                    <h3 class="font-semibold text-gray-700 mb-2">Glycémie Moyenne</h3>
-                                    <div class="flex items-center justify-center space-x-2 mb-2">
-                                        <span class="text-3xl font-bold text-gray-800" id="averageSugar">-</span>
-                                        <span class="text-gray-600">mg/dL</span>
-                                    </div>
-                                    <div class="health-indicator p-2 rounded-lg" id="sugarIndicator">
-                                        <span class="text-sm font-medium" id="sugarStatus">-</span>
-                                    </div>
-                                </div>
-                            </div>
+									<!-- Blood Pressure Overview -->
+									<div class="text-center p-4 bg-gray-50 rounded-lg dark:bg-gray-700">
+										<h3 class="font-semibold text-gray-700 mb-2 dark:text-gray-200">
+											Tension Moyenne
+										</h3>
+										<div class="flex items-center justify-center space-x-2 mb-2">
+											<span class="text-3xl font-bold text-gray-800 dark:text-gray-100" id="averageBP">-</span>
+											<span class="text-gray-600 dark:text-gray-400">mmHg</span>
+										</div>
+										<div class="health-indicator p-2 rounded-lg dark:bg-gray-700" id="bpIndicator">
+											<span class="text-sm font-medium dark:text-gray-200" id="bpStatus">-</span>
+										</div>
+									</div>
 
-                            <!-- Overall Health Status -->
-                            <div class="mt-6 pt-6 border-t border-gray-200">
-                                <h3 class="text-lg font-semibold text-gray-800 mb-3">État de Santé Global</h3>
-                                <div class="flex items-center justify-between">
-                                    <span class="text-sm text-gray-600">Votre état de santé général est:</span>
-                                    <span class="text-lg font-bold" id="overallHealthStatus">-</span>
-                                </div>
-                                <div class="mt-2 w-full bg-gray-200 rounded-full h-3">
-                                    <div id="overallHealthBar" class="h-3 rounded-full transition-all duration-500"></div>
-                                </div>
-                            </div>
-                        </div>
+									<!-- Blood Sugar Overview -->
+									<div class="text-center p-4 bg-gray-50 rounded-lg dark:bg-gray-700">
+										<h3 class="font-semibold text-gray-700 mb-2 dark:text-gray-200">
+											Glycémie Moyenne
+										</h3>
+										<div class="flex items-center justify-center space-x-2 mb-2">
+											<span class="text-3xl font-bold text-gray-800 dark:text-gray-100" id="averageSugar">-</span>
+											<span class="text-gray-600 dark:text-gray-400">mg/dL</span>
+										</div>
+										<div class="health-indicator p-2 rounded-lg dark:bg-gray-700" id="sugarIndicator">
+											<span class="text-sm font-medium dark:text-gray-200" id="sugarStatus">-</span>
+										</div>
+									</div>
+								</div>
 
-                        <!-- Measurements List -->
-                        <div class="bg-white rounded-lg shadow-md p-6">
-                            <div class="flex justify-between items-center mb-6">
-                                <h2 class="text-2xl font-bold text-gray-800">Historique des Mesures</h2>
-                                <button id="clearAllBtn" class="bg-red-500 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-red-600 transition-colors duration-200">
-                                    Tout Supprimer
-                                </button>
-                            </div>
-                            
-                            <div id="measurementsList" class="space-y-4">
-                                <!-- Measurements will be displayed here -->
-                                <div class="text-center py-8 text-gray-500">
-                                    <p>Aucune mesure enregistrée</p>
-                                </div>
-                            </div>
+								<!-- Overall Health Status -->
+								<div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+									<h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-3">
+										État de Santé Global
+									</h3>
+									<div class="flex items-center justify-between">
+										<span class="text-sm text-gray-600 dark:text-gray-400"
+											>Votre état de santé général est:</span
+										>
+										<span class="text-lg font-bold dark:text-gray-100" id="overallHealthStatus"
+											>-</span
+										>
+									</div>
+									<div class="mt-2 w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+										<div
+											id="overallHealthBar"
+											class="h-3 rounded-full transition-all duration-500"
+										></div>
+									</div>
+								</div>
+							</div>
 
-                            <!-- Statistics -->
-                            <div class="mt-6 pt-6 border-t border-gray-200">
-                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                                    <div class="bg-blue-50 rounded-lg p-3">
-                                        <p class="text-2xl font-bold text-blue-600" id="totalMeasurements">0</p>
-                                        <p class="text-sm text-gray-600">Total</p>
-                                    </div>
-                                    <div class="bg-green-50 rounded-lg p-3">
-                                        <p class="text-2xl font-bold text-green-600" id="goodMeasurements">0</p>
-                                        <p class="text-sm text-gray-600">Bonnes</p>
-                                    </div>
-                                    <div class="bg-amber-50 rounded-lg p-3">
-                                        <p class="text-2xl font-bold text-amber-600" id="warningMeasurements">0</p>
-                                        <p class="text-sm text-gray-600">Attention</p>
-                                    </div>
-                                    <div class="bg-red-50 rounded-lg p-3">
-                                        <p class="text-2xl font-bold text-red-600" id="dangerMeasurements">0</p>
-                                        <p class="text-sm text-gray-600">Critiques</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+							<!-- Measurements List -->
+							<div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+								<div class="flex justify-between items-center mb-6">
+									<h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+										Historique des Mesures
+									</h2>
+									<button
+										id="clearAllBtn"
+										class="bg-red-500 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-red-600 transition-colors duration-200"
+									>
+										Tout Supprimer
+									</button>
+								</div>
 
-    <!-- Footer -->
-    <footer class="bg-[#0b1320] text-white py-6 md:py-8">
-        <div class="max-w-2xl h-12 md:h-16 flex justify-center text-center items-center mx-auto">
-            <p class="text-sm md:text-base">&copy; 2023 MediCare. Tous droits réservés.</p>
-        </div>
-    </footer>
+								<div id="measurementsList" class="space-y-4">
+									<!-- Measurements will be displayed here -->
+									<div
+										class="text-center py-8 text-gray-500 dark:text-gray-400"
+									>
+										<p>Aucune mesure enregistrée</p>
+									</div>
+								</div>
 
-    <script src="../script/suivisante.js"></script>
-</body>
+								<!-- Statistics -->
+								<div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+									<div
+										class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center"
+									>
+										<div class="bg-blue-50 dark:bg-blue-900/30 rounded-lg p-3">
+											<p
+												class="text-2xl font-bold text-blue-600 dark:text-blue-400"
+												id="totalMeasurements"
+											>
+												0
+											</p>
+											<p class="text-sm text-gray-600 dark:text-gray-400">Total</p>
+										</div>
+										<div class="bg-green-50 dark:bg-green-900/30 rounded-lg p-3">
+											<p
+												class="text-2xl font-bold text-green-600 dark:text-green-400"
+												id="goodMeasurements"
+											>
+												0
+											</p>
+											<p class="text-sm text-gray-600 dark:text-gray-400">Bonnes</p>
+										</div>
+										<div class="bg-amber-50 dark:bg-amber-600/30 rounded-lg p-3">
+											<p
+												class="text-2xl font-bold text-amber-600 dark:text-amber-300"
+												id="warningMeasurements"
+											>
+												0
+											</p>
+											<p class="text-sm text-gray-600 dark:text-gray-400">Attention</p>
+										</div>
+										<div class="bg-red-50 dark:bg-red-900/30 rounded-lg p-3">
+											<p
+												class="text-2xl font-bold text-red-600 dark:text-red-400"
+												id="dangerMeasurements"
+											>
+												0
+											</p>
+											<p class="text-sm text-gray-600 dark:text-gray-400">Critiques</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer -->
+		<footer class="bg-[#0b1320] text-white py-6 md:py-8">
+			<div
+				class="max-w-2xl h-12 md:h-16 flex justify-center text-center items-center mx-auto"
+			>
+				<p class="text-sm md:text-base">
+					&copy; 2023 MediCare. Tous droits réservés.
+				</p>
+			</div>
+		</footer>
+
+		<script src="../script/suivisante.js"></script>
+		<script src="../script/dark-mode.js"></script>
+	</body>
 </html>

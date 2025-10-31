@@ -6,26 +6,28 @@
 		<title>Médecins - MediCare</title>
 		<link href="../dist/output.css" rel="stylesheet" />
 	</head>
-	<body class="bg-gray-100 font-sans">
+	<body class="bg-gray-100 font-sans dark:bg-gray-900">
 		<!-- Header -->
 		<header class="fixed top-0 left-0 z-50 w-full">
 			<nav
-				class="bg-blue-950 px-4 md:px-10 py-4 flex flex-wrap justify-between items-center shadow-md"
+				class="bg-blue-950 px-4 md:px-10 py-4 flex flex-wrap justify-between items-center shadow-md dark:bg-blue-900"
 			>
 				<!-- Logo -->
 				<a href="../index.html">
-                    <div class="flex items-center space-x-3 cursor-pointer">
-                        <img
-                            src="../assets/health_logo.png"
-                            alt="MediCare Logo"
-                            class="h-10 w-10 md:h-12 md:w-12 object-contain"
-                        />
-                        <span class="text-white text-lg md:text-xl font-bold">MediCare</span>
-                    </div>
-                </a>
+					<div class="flex items-center space-x-3 cursor-pointer">
+						<img
+							src="../assets/health_logo.png"
+							alt="MediCare Logo"
+							class="h-10 w-10 md:h-12 md:w-12 object-contain"
+						/>
+						<span class="text-white text-lg md:text-xl font-bold"
+							>MediCare</span
+						>
+					</div>
+				</a>
 				<!-- Search Bar -->
 				<div
-					class="relative max-w-xs w-1/2 md:w-2/3 lg:w-1/3 bg-amber-50 rounded-full"
+					class="relative max-w-xs w-1/2 md:w-2/3 lg:w-1/3 bg-amber-50 dark:bg-gray-800 rounded-full"
 				>
 					<img
 						src="../assets/search-icone.svg"
@@ -37,7 +39,7 @@
 						type="search"
 						id="doctorSearch"
 						placeholder="Rechercher un médecin..."
-						class="block w-full pl-10 pr-3 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base"
+						class="block w-full pl-10 pr-3 py-2 rounded-full border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
 					/>
 				</div>
 
@@ -112,7 +114,10 @@
 			</nav>
 
 			<!-- Mobile Menu -->
-			<div id="mobile-menu" class="hidden lg:hidden cursor-pointer bg-blue-900">
+			<div
+				id="mobile-menu"
+				class="hidden lg:hidden cursor-pointer bg-blue-900 dark:bg-blue-800"
+			>
 				<ul class="flex flex-col space-y-4 p-6 text-white font-semibold">
 					<li>
 						<a href="../index.html" class="block py-2 hover:text-amber-300"
@@ -152,7 +157,7 @@
 			</section>
 
 			<!-- Filters Section -->
-			<section class="bg-white py-6 shadow-sm">
+			<section class="bg-white dark:bg-gray-800 py-6 shadow-sm">
 				<div class="max-w-6xl mx-auto px-4">
 					<div
 						class="flex flex-col md:flex-row gap-4 items-center justify-between"
@@ -165,25 +170,25 @@
 								Tous
 							</button>
 							<button
-								class="filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium transition-all duration-200 hover:bg-gray-300"
+								class="filter-btn px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-full text-sm font-medium transition-all duration-200 hover:bg-gray-300 dark:hover:bg-gray-600"
 								data-specialty="cardiologie"
 							>
 								Cardiologie
 							</button>
 							<button
-								class="filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium transition-all duration-200 hover:bg-gray-300"
+								class="filter-btn px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-full text-sm font-medium transition-all duration-200 hover:bg-gray-300 dark:hover:bg-gray-600"
 								data-specialty="pediatrie"
 							>
 								Pédiatrie
 							</button>
 							<button
-								class="filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium transition-all duration-200 hover:bg-gray-300"
+								class="filter-btn px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-full text-sm font-medium transition-all duration-200 hover:bg-gray-300 dark:hover:bg-gray-600"
 								data-specialty="dermatologie"
 							>
 								Dermatologie
 							</button>
 							<button
-								class="filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium transition-all duration-200 hover:bg-gray-300"
+								class="filter-btn px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-full text-sm font-medium transition-all duration-200 hover:bg-gray-300 dark:hover:bg-gray-600"
 								data-specialty="neurologie"
 							>
 								Neurologie
@@ -212,7 +217,7 @@
 					>
 						<!-- Doctor 1 -->
 						<div
-							class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+							class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
 							data-doctor-id="1"
 							data-specialty="cardiologie"
 						>
@@ -220,10 +225,10 @@
 								<img
 									src="../assets/doctor1.png"
 									alt="Dr Amélie Roux"
-									class="w-full h-48 object-contain object-center bg-gray-50"
+									class="w-full h-48 object-contain object-center bg-gray-50 dark:bg-gray-700"
 								/>
 								<button
-									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400"
+									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white dark:bg-gray-700 rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400 dark:text-gray-300"
 								>
 									<img
 										src="../assets/heart-icone.svg"
@@ -236,28 +241,40 @@
 
 							<div class="p-6">
 								<div class="flex justify-between items-start mb-2">
-									<h3 class="text-xl font-semibold text-gray-800">
+									<h3
+										class="text-xl font-semibold text-gray-800 dark:text-gray-100"
+									>
 										Dr Amélie Roux
 									</h3>
 									<span
-										class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full"
+										class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded-full"
 										>4.8 ★</span
 									>
 								</div>
 
-								<p class="text-blue-600 font-medium mb-2">Cardiologue</p>
-								<p class="text-gray-600 text-sm mb-3 flex items-center">
-									<i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+								<p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+									Cardiologue
+								</p>
+								<p
+									class="text-gray-600 dark:text-gray-300 text-sm mb-3 flex items-center"
+								>
+									<i
+										class="fas fa-map-marker-alt text-gray-400 dark:text-gray-500 mr-2"
+									></i>
 									Casablanca • 15 ans d'expérience
 								</p>
 
-								<p class="text-gray-700 text-sm mb-4 line-clamp-2">
+								<p
+									class="text-gray-700 dark:text-gray-200 text-sm mb-4 line-clamp-2"
+								>
 									Spécialiste en maladies cardiovasculaires avec 15 ans
 									d'expérience.
 								</p>
 
 								<div class="flex justify-between items-center">
-									<span class="text-sm font-medium text-green-600">
+									<span
+										class="text-sm font-medium text-green-600 dark:text-green-400"
+									>
 										Disponible cette semaine
 									</span>
 									<button
@@ -271,7 +288,7 @@
 
 						<!-- Doctor 2 -->
 						<div
-							class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+							class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
 							data-doctor-id="2"
 							data-specialty="pediatrie"
 						>
@@ -279,10 +296,10 @@
 								<img
 									src="../assets/doctor2.png"
 									alt="amine enafi"
-									class="w-full h-48 object-contain object-center bg-gray-50"
+									class="w-full h-48 object-contain object-center bg-gray-50 dark:bg-gray-700"
 								/>
 								<button
-									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400"
+									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white dark:bg-gray-700 rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400 dark:text-gray-300"
 								>
 									<img
 										src="../assets/heart-icone.svg"
@@ -295,28 +312,40 @@
 
 							<div class="p-6">
 								<div class="flex justify-between items-start mb-2">
-									<h3 class="text-xl font-semibold text-gray-800">
+									<h3
+										class="text-xl font-semibold text-gray-800 dark:text-gray-100"
+									>
 										amine enafi
 									</h3>
 									<span
-										class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full"
+										class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded-full"
 										>4.9 ★</span
 									>
 								</div>
 
-								<p class="text-blue-600 font-medium mb-2">Pédiatre</p>
-								<p class="text-gray-600 text-sm mb-3 flex items-center">
-									<i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+								<p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+									Pédiatre
+								</p>
+								<p
+									class="text-gray-600 dark:text-gray-300 text-sm mb-3 flex items-center"
+								>
+									<i
+										class="fas fa-map-marker-alt text-gray-400 dark:text-gray-500 mr-2"
+									></i>
 									Rabat • 12 ans d'expérience
 								</p>
 
-								<p class="text-gray-700 text-sm mb-4 line-clamp-2">
+								<p
+									class="text-gray-700 dark:text-gray-200 text-sm mb-4 line-clamp-2"
+								>
 									Soins complets pour enfants et adolescents. Spécialiste en
 									développement infantile.
 								</p>
 
 								<div class="flex justify-between items-center">
-									<span class="text-sm font-medium text-green-600">
+									<span
+										class="text-sm font-medium text-green-600 dark:text-green-400"
+									>
 										Disponible demain
 									</span>
 									<button
@@ -330,7 +359,7 @@
 
 						<!-- Doctor 3 -->
 						<div
-							class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+							class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
 							data-doctor-id="3"
 							data-specialty="dermatologie"
 						>
@@ -338,10 +367,10 @@
 								<img
 									src="../assets/doctor3.png"
 									alt="Dr asmae el khadraoui"
-									class="w-full h-48 object-contain object-center bg-gray-50"
+									class="w-full h-48 object-contain object-center bg-gray-50 dark:bg-gray-700"
 								/>
 								<button
-									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400"
+									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white dark:bg-gray-700 rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400 dark:text-gray-300"
 								>
 									<img
 										src="../assets/heart-icone.svg"
@@ -354,28 +383,40 @@
 
 							<div class="p-6">
 								<div class="flex justify-between items-start mb-2">
-									<h3 class="text-xl font-semibold text-gray-800">
+									<h3
+										class="text-xl font-semibold text-gray-800 dark:text-gray-100"
+									>
 										Dr asmae el khadraoui
 									</h3>
 									<span
-										class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full"
+										class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded-full"
 										>4.7 ★</span
 									>
 								</div>
 
-								<p class="text-blue-600 font-medium mb-2">Dermatologue</p>
-								<p class="text-gray-600 text-sm mb-3 flex items-center">
-									<i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+								<p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+									Dermatologue
+								</p>
+								<p
+									class="text-gray-600 dark:text-gray-300 text-sm mb-3 flex items-center"
+								>
+									<i
+										class="fas fa-map-marker-alt text-gray-400 dark:text-gray-500 mr-2"
+									></i>
 									Marrakech • 10 ans d'expérience
 								</p>
 
-								<p class="text-gray-700 text-sm mb-4 line-clamp-2">
+								<p
+									class="text-gray-700 dark:text-gray-200 text-sm mb-4 line-clamp-2"
+								>
 									Expertise en soins de la peau et traitements cosmétiques.
 									Consultations esthétiques.
 								</p>
 
 								<div class="flex justify-between items-center">
-									<span class="text-sm font-medium text-green-600">
+									<span
+										class="text-sm font-medium text-green-600 dark:text-green-400"
+									>
 										Disponible aujourd'hui
 									</span>
 									<button
@@ -389,7 +430,7 @@
 
 						<!-- Doctor 4 -->
 						<div
-							class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+							class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
 							data-doctor-id="4"
 							data-specialty="neurologie"
 						>
@@ -397,10 +438,10 @@
 								<img
 									src="../assets/doctor4.png"
 									alt="Dr Hakim Alouani"
-									class="w-full h-48 object-contain object-center bg-gray-50"
+									class="w-full h-48 object-contain object-center bg-gray-50 dark:bg-gray-700"
 								/>
 								<button
-									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400"
+									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white dark:bg-gray-700 rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400 dark:text-gray-300"
 								>
 									<img
 										src="../assets/heart-icone.svg"
@@ -421,28 +462,40 @@
 
 							<div class="p-6">
 								<div class="flex justify-between items-start mb-2">
-									<h3 class="text-xl font-semibold text-gray-800">
+									<h3
+										class="text-xl font-semibold text-gray-800 dark:text-gray-100"
+									>
 										Dr Hakim Alouani
 									</h3>
 									<span
-										class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full"
+										class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded-full"
 										>4.9 ★</span
 									>
 								</div>
 
-								<p class="text-blue-600 font-medium mb-2">Neurologue</p>
-								<p class="text-gray-600 text-sm mb-3 flex items-center">
-									<i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+								<p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+									Neurologue
+								</p>
+								<p
+									class="text-gray-600 dark:text-gray-300 text-sm mb-3 flex items-center"
+								>
+									<i
+										class="fas fa-map-marker-alt text-gray-400 dark:text-gray-500 mr-2"
+									></i>
 									Tanger • 18 ans d'expérience
 								</p>
 
-								<p class="text-gray-700 text-sm mb-4 line-clamp-2">
+								<p
+									class="text-gray-700 dark:text-gray-200 text-sm mb-4 line-clamp-2"
+								>
 									Diagnostique et prise en charge des troubles neurologiques
 									complexes.
 								</p>
 
 								<div class="flex justify-between items-center">
-									<span class="text-sm font-medium text-red-600">
+									<span
+										class="text-sm font-medium text-red-600 dark:text-red-400"
+									>
 										Complet cette semaine
 									</span>
 									<button
@@ -457,7 +510,7 @@
 
 						<!-- Doctor 5 -->
 						<div
-							class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+							class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
 							data-doctor-id="5"
 							data-specialty="cardiologie"
 						>
@@ -465,10 +518,10 @@
 								<img
 									src="../assets/doctor5.png"
 									alt="Dr salma ben jedo"
-									class="w-full h-48 object-contain object-center bg-gray-50"
+									class="w-full h-48 object-contain object-center bg-gray-50 dark:bg-gray-700"
 								/>
 								<button
-									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400"
+									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white dark:bg-gray-700 rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400 dark:text-gray-300"
 								>
 									<img
 										src="../assets/heart-icone.svg"
@@ -481,27 +534,39 @@
 
 							<div class="p-6">
 								<div class="flex justify-between items-start mb-2">
-									<h3 class="text-xl font-semibold text-gray-800">
+									<h3
+										class="text-xl font-semibold text-gray-800 dark:text-gray-100"
+									>
 										Dr salma ben jedo
 									</h3>
 									<span
-										class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full"
+										class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded-full"
 										>4.6 ★</span
 									>
 								</div>
 
-								<p class="text-blue-600 font-medium mb-2">Cardiologue</p>
-								<p class="text-gray-600 text-sm mb-3 flex items-center">
-									<i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+								<p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+									Cardiologue
+								</p>
+								<p
+									class="text-gray-600 dark:text-gray-300 text-sm mb-3 flex items-center"
+								>
+									<i
+										class="fas fa-map-marker-alt text-gray-400 dark:text-gray-500 mr-2"
+									></i>
 									Fès • 8 ans d'expérience
 								</p>
 
-								<p class="text-gray-700 text-sm mb-4 line-clamp-2">
+								<p
+									class="text-gray-700 dark:text-gray-200 text-sm mb-4 line-clamp-2"
+								>
 									Spécialiste en rythmologie et insuffisance cardiaque.
 								</p>
 
 								<div class="flex justify-between items-center">
-									<span class="text-sm font-medium text-green-600">
+									<span
+										class="text-sm font-medium text-green-600 dark:text-green-400"
+									>
 										Disponible cette semaine
 									</span>
 									<button
@@ -515,7 +580,7 @@
 
 						<!-- Doctor 6 -->
 						<div
-							class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+							class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
 							data-doctor-id="6"
 							data-specialty="dermatologie"
 						>
@@ -523,10 +588,10 @@
 								<img
 									src="../assets/doctor2.png"
 									alt="Dr ayoub el faqir"
-									class="w-full h-48 object-contain object-center bg-gray-50"
+									class="w-full h-48 object-contain object-center bg-gray-50 dark:bg-gray-700"
 								/>
 								<button
-									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400"
+									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white dark:bg-gray-700 rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400 dark:text-gray-300"
 								>
 									<img
 										src="../assets/heart-icone.svg"
@@ -539,27 +604,39 @@
 
 							<div class="p-6">
 								<div class="flex justify-between items-start mb-2">
-									<h3 class="text-xl font-semibold text-gray-800">
+									<h3
+										class="text-xl font-semibold text-gray-800 dark:text-gray-100"
+									>
 										Dr ayoub el faqir
 									</h3>
 									<span
-										class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full"
+										class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded-full"
 										>4.8 ★</span
 									>
 								</div>
 
-								<p class="text-blue-600 font-medium mb-2">Dermatologue</p>
-								<p class="text-gray-600 text-sm mb-3 flex items-center">
-									<i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+								<p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+									Dermatologue
+								</p>
+								<p
+									class="text-gray-600 dark:text-gray-300 text-sm mb-3 flex items-center"
+								>
+									<i
+										class="fas fa-map-marker-alt text-gray-400 dark:text-gray-500 mr-2"
+									></i>
 									Agadir • 11 ans d'expérience
 								</p>
 
-								<p class="text-gray-700 text-sm mb-4 line-clamp-2">
+								<p
+									class="text-gray-700 dark:text-gray-200 text-sm mb-4 line-clamp-2"
+								>
 									Expert en dermatologie pédiatrique et allergies cutanées.
 								</p>
 
 								<div class="flex justify-between items-center">
-									<span class="text-sm font-medium text-green-600">
+									<span
+										class="text-sm font-medium text-green-600 dark:text-green-400"
+									>
 										Disponible demain
 									</span>
 									<button
@@ -573,7 +650,7 @@
 
 						<!-- Doctor 7 -->
 						<div
-							class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+							class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
 							data-doctor-id="7"
 							data-specialty="pédiatrie"
 						>
@@ -581,10 +658,10 @@
 								<img
 									src="../assets/doctor7.png"
 									alt="Dr ayadi mahmoud"
-									class="w-full h-48 object-contain object-center bg-gray-50"
+									class="w-full h-48 object-contain object-center bg-gray-50 dark:bg-gray-700"
 								/>
 								<button
-									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400"
+									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white dark:bg-gray-700 rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400 dark:text-gray-300"
 								>
 									<img
 										src="../assets/heart-icone.svg"
@@ -597,28 +674,40 @@
 
 							<div class="p-6">
 								<div class="flex justify-between items-start mb-2">
-									<h3 class="text-xl font-semibold text-gray-800">
+									<h3
+										class="text-xl font-semibold text-gray-800 dark:text-gray-100"
+									>
 										Dr ayadi mahmoud
 									</h3>
 									<span
-										class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full"
+										class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded-full"
 										>4.9 ★</span
 									>
 								</div>
 
-								<p class="text-blue-600 font-medium mb-2">Pédiatre</p>
-								<p class="text-gray-600 text-sm mb-3 flex items-center">
-									<i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+								<p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+									Pédiatre
+								</p>
+								<p
+									class="text-gray-600 dark:text-gray-300 text-sm mb-3 flex items-center"
+								>
+									<i
+										class="fas fa-map-marker-alt text-gray-400 dark:text-gray-500 mr-2"
+									></i>
 									Meknès • 8 ans d'expérience
 								</p>
 
-								<p class="text-gray-700 text-sm mb-4 line-clamp-2">
+								<p
+									class="text-gray-700 dark:text-gray-200 text-sm mb-4 line-clamp-2"
+								>
 									Spécialiste en pédiatrie générale et troubles du
 									développement.
 								</p>
 
 								<div class="flex justify-between items-center">
-									<span class="text-sm font-medium text-green-600">
+									<span
+										class="text-sm font-medium text-green-600 dark:text-green-400"
+									>
 										Disponible cette semaine
 									</span>
 									<button
@@ -632,7 +721,7 @@
 
 						<!-- Doctor 8 -->
 						<div
-							class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+							class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
 							data-doctor-id="8"
 							data-specialty="neurologie"
 						>
@@ -640,10 +729,10 @@
 								<img
 									src="../assets/doctor8.png"
 									alt="Dr hiba rehmaoui"
-									class="w-full h-48 object-contain object-center bg-gray-50"
+									class="w-full h-48 object-contain object-center bg-gray-50 dark:bg-gray-700"
 								/>
 								<button
-									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400"
+									class="favorite-btn absolute top-3 right-3 w-10 h-10 bg-white dark:bg-gray-700 rounded-full shadow-md flex items-center justify-center transition-all duration-200 hover:scale-110 text-gray-400 dark:text-gray-300"
 								>
 									<img
 										src="../assets/heart-icone.svg"
@@ -656,25 +745,37 @@
 
 							<div class="p-6">
 								<div class="flex justify-between items-start mb-2">
-									<h3 class="text-xl font-semibold text-gray-800">
+									<h3
+										class="text-xl font-semibold text-gray-800 dark:text-gray-100"
+									>
 										Dr hiba rehmaoui
 									</h3>
 									<span
-										class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full"
+										class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded-full"
 										>4.7 ★</span
 									>
 								</div>
 
-								<p class="text-blue-600 font-medium mb-2">Neurologue</p>
-								<p class="text-gray-600 text-sm mb-3 flex items-center">
-									<i class="fas fa-map-marker-alt text-gray-400 mr-2"></i>
+								<p class="text-blue-600 dark:text-blue-400 font-medium mb-2">
+									Neurologue
+								</p>
+								<p
+									class="text-gray-600 dark:text-gray-300 text-sm mb-3 flex items-center"
+								>
+									<i
+										class="fas fa-map-marker-alt text-gray-400 dark:text-gray-500 mr-2"
+									></i>
 									Oujda • 14 ans d'expérience
 								</p>
-								<p class="text-gray-700 text-sm mb-4 line-clamp-2">
+								<p
+									class="text-gray-700 dark:text-gray-200 text-sm mb-4 line-clamp-2"
+								>
 									Expert en épilepsie et troubles du mouvement.
 								</p>
 								<div class="flex justify-between items-center">
-									<span class="text-sm font-medium text-green-600">
+									<span
+										class="text-sm font-medium text-green-600 dark:text-green-400"
+									>
 										Disponible demain
 									</span>
 									<button
@@ -689,11 +790,15 @@
 
 					<!-- No Results Message (Hidden by default) -->
 					<div id="noResults" class="hidden text-center py-12">
-						<i class="fas fa-search text-gray-400 text-6xl mb-4"></i>
-						<h3 class="text-xl font-semibold text-gray-600 mb-2">
+						<i
+							class="fas fa-search text-gray-400 dark:text-gray-500 text-6xl mb-4"
+						></i>
+						<h3
+							class="text-xl font-semibold text-gray-600 dark:text-gray-300 mb-2"
+						>
 							Aucun médecin trouvé
 						</h3>
-						<p class="text-gray-500">
+						<p class="text-gray-500 dark:text-gray-400">
 							Aucun médecin ne correspond à vos critères de recherche.
 						</p>
 					</div>
@@ -713,5 +818,6 @@
 		</footer>
 
 		<script src="../script/medcins.js"></script>
+		<script src="../script/dark-mode.js"></script>
 	</body>
 </html>

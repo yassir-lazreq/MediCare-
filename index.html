@@ -3,16 +3,18 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="color-scheme" content="light dark" />
+
 		<link href="dist/output.css" rel="stylesheet" />
 		<title>MediCare</title>
 	</head>
 
-	<body class="bg-gray-100 font-sans">
+	<body class="bg-gray-100 font-sans dark:bg-gray-900">
 		<!-- Header -->
 
 		<header class="fixed top-0 left-0 z-50 w-full">
 			<nav
-				class="bg-blue-950 px-4 md:px-10 py-4 flex flex-wrap justify-between items-center shadow-md"
+				class="bg-blue-950 px-4 md:px-10 py-4 flex flex-wrap justify-between items-center shadow-md dark:bg-blue-900"
 			>
 				<!-- Logo -->
 				<a href="index.html">
@@ -22,12 +24,14 @@
 							alt="MediCare Logo"
 							class="h-10 w-10 md:h-12 md:w-12 object-contain"
 						/>
-						<span class="text-white text-lg md:text-xl font-bold">MediCare</span>
+						<span class="text-white text-lg md:text-xl font-bold"
+							>MediCare</span
+						>
 					</div>
 				</a>
 				<!-- Search Bar -->
 				<div
-					class="relative max-w-xs w-1/2 md:w-2/3 lg:w-1/3 bg-amber-50 rounded-full"
+					class="relative max-w-xs w-1/2 md:w-2/3 lg:w-1/3 bg-amber-50 dark:bg-gray-800 rounded-full"
 				>
 					<img
 						src="assets/search-icone.svg"
@@ -39,7 +43,7 @@
 						type="search"
 						name="search"
 						placeholder="Search..."
-						class="block w-full pl-10 pr-3 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base"
+						class="block w-full pl-10 pr-3 py-2 rounded-full border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
 					/>
 				</div>
 
@@ -50,7 +54,14 @@
 							for="checkbox"
 							class="flex bg-gray-600 cursor-pointer relative w-14 h-7 md:w-16 md:h-8 rounded-full overflow-hidden"
 						>
-							<input type="checkbox" id="checkbox" class="sr-only peer" aria-label="Toggle dark mode" title="Toggle dark mode" role="switch" />
+							<input
+								type="checkbox"
+								id="checkbox"
+								class="sr-only peer"
+								aria-label="Toggle dark mode"
+								title="Toggle dark mode"
+								role="switch"
+							/>
 							<div
 								class="w-6 h-6 md:w-8 md:h-8 bg-white rounded-full shadow-md transform peer-checked:translate-x-7 md:peer-checked:translate-x-8 transition-transform duration-300 ease-in-out"
 							></div>
@@ -75,7 +86,13 @@
 
 					<!-- burger menu -->
 					<div class="lg:hidden">
-						<button id="burger" type="button" class="text-white focus:outline-none cursor-pointer" aria-label="Open menu" title="Open menu">
+						<button
+							id="burger"
+							type="button"
+							class="text-white focus:outline-none cursor-pointer"
+							aria-label="Open menu"
+							title="Open menu"
+						>
 							<span class="sr-only">Open menu</span>
 							<span
 								class="block w-5 h-0.5 md:w-6 md:h-0.5 bg-white mb-1 md:mb-1.5"
@@ -85,7 +102,10 @@
 								class="block w-5 h-0.5 md:w-6 md:h-0.5 bg-white mb-1 md:mb-1.5"
 								aria-hidden="true"
 							></span>
-							<span class="block w-5 h-0.5 md:w-6 md:h-0.5 bg-white" aria-hidden="true"></span>
+							<span
+								class="block w-5 h-0.5 md:w-6 md:h-0.5 bg-white"
+								aria-hidden="true"
+							></span>
 						</button>
 					</div>
 
@@ -118,7 +138,10 @@
 			</nav>
 
 			<!-- Mobile Menu -->
-			<div id="mobile-menu" class="hidden lg:hidden cursor-pointer bg-blue-900">
+			<div
+				id="mobile-menu"
+				class="hidden lg:hidden cursor-pointer bg-blue-900 dark:bg-blue-800"
+			>
 				<ul class="flex flex-col space-y-4 p-6 text-white font-semibold">
 					<li>
 						<a href="index.html" class="block py-2 hover:text-amber-300"
@@ -153,9 +176,9 @@
 
 			<section
 				class="relative bg-cover bg-center h-[600px] md:h-[90vh] flex items-center"
-				style="background-image: url('assets/hero-image.png')"
+				style="background-image: url(&quot;assets/hero-image.png&quot;)"
 			>
-				<div class="absolute inset-0 bg-blue-950/40"></div>
+				<div class="absolute inset-0 bg-blue-950/40 dark:bg-blue-950/60"></div>
 
 				<div class="relative z-10 px-4 md:pl-32 text-white max-w-3xl">
 					<h1 class="text-4xl md:text-7xl font-bold leading-tight mb-4 md:mb-6">
@@ -192,7 +215,7 @@
 					<div
 						class="absolute inset-0"
 						style="
-							background-image: url('assets/health-1.png');
+							background-image: url(&quot;assets/health-1.png&quot;);
 							background-size: cover;
 							background-position: center;
 							background-repeat: no-repeat;
@@ -219,7 +242,7 @@
 					<div
 						class="absolute inset-0"
 						style="
-							background-image: url('assets/health-2.png');
+							background-image: url(&quot;assets/health-2.png&quot;);
 							background-size: cover;
 							background-position: center;
 							background-repeat: no-repeat;
@@ -246,7 +269,7 @@
 					<div
 						class="absolute inset-0"
 						style="
-							background-image: url('assets/health-3.png');
+							background-image: url(&quot;assets/health-3.png&quot;);
 							background-size: cover;
 							background-position: center;
 							background-repeat: no-repeat;
@@ -273,7 +296,7 @@
 					<div
 						class="absolute inset-0"
 						style="
-							background-image: url('assets/health-4.png');
+							background-image: url(&quot;assets/health-4.png&quot;);
 							background-size: cover;
 							background-position: center;
 							background-repeat: no-repeat;
@@ -383,10 +406,10 @@
 
 			<section class="mt-8 md:mt-12 my-8 md:my-16 text-center">
 				<div class="max-w-6xl mx-auto px-4">
-					<h2 class="text-2xl md:text-4xl font-bold mb-4">
+					<h2 class="text-2xl md:text-4xl font-bold mb-4 dark:text-gray-100">
 						Why Choose MediCare?
 					</h2>
-					<p class="text-base md:text-xl">
+					<p class="text-base md:text-xl dark:text-gray-300">
 						MediCare is dedicated to providing the best healthcare services
 						tailored to your needs.
 					</p>
@@ -402,7 +425,7 @@
 						style="
 							background-image:
 								linear-gradient(rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.55)),
-								url('assets/card1.png');
+								url(&quot;assets/card1.png&quot;);
 							background-size: cover;
 							background-position: center;
 							background-repeat: no-repeat;
@@ -426,7 +449,7 @@
 						style="
 							background-image:
 								linear-gradient(rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.55)),
-								url('assets/card2.png');
+								url(&quot;assets/card2.png&quot;);
 							background-size: cover;
 							background-position: center;
 							background-repeat: no-repeat;
@@ -450,7 +473,7 @@
 						style="
 							background-image:
 								linear-gradient(rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.55)),
-								url('assets/card3.png');
+								url(&quot;assets/card3.png&quot;);
 							background-size: cover;
 							background-position: center;
 							background-repeat: no-repeat;
@@ -474,7 +497,7 @@
 						style="
 							background-image:
 								linear-gradient(rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.55)),
-								url('assets/card4.png');
+								url(&quot;assets/card4.png&quot;);
 							background-size: cover;
 							background-position: center;
 							background-repeat: no-repeat;
@@ -496,7 +519,9 @@
 			<!-- doctors and articles section -->
 			<section class="py-6 md:py-8">
 				<div class="max-w-6xl mx-auto px-4">
-					<h2 class="text-xl md:text-2xl font-semibold mb-4 text-center">
+					<h2
+						class="text-xl md:text-2xl font-semibold mb-4 text-center dark:text-gray-100"
+					>
 						Nos Médecins
 					</h2>
 				</div>
@@ -505,21 +530,24 @@
 				<div
 					class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 px-4 mb-8 md:mb-10"
 				>
-
 					<!--doctor 1-->
 					<article
 						id="doctor-amelie-roux"
 						data-search="Amélie Roux cardiologue paris"
-						class="bg-white rounded-lg shadow p-3 md:p-4 flex flex-col items-start"
+						class="bg-white dark:bg-gray-800 rounded-lg shadow p-3 md:p-4 flex flex-col items-start"
 					>
 						<img
 							src="assets/doctor1.png"
 							alt="Dr Amélie Roux"
-							class="w-full h-48 md:h-64 object-contain object-center rounded-md mb-3 bg-gray-50"
+							class="w-full h-48 md:h-64 object-contain object-center rounded-md mb-3 bg-gray-50 dark:bg-gray-700"
 						/>
-						<h3 class="font-semibold text-sm md:text-base">Dr Amélie Roux</h3>
-						<p class="text-xs md:text-sm text-gray-600">Cardiologue — Casablanca</p>
-						<p class="mt-2 text-xs md:text-sm text-gray-700">
+						<h3 class="font-semibold text-sm md:text-base dark:text-gray-100">
+							Dr Amélie Roux
+						</h3>
+						<p class="text-xs md:text-sm text-gray-600 dark:text-gray-300">
+							Cardiologue — Casablanca
+						</p>
+						<p class="mt-2 text-xs md:text-sm text-gray-700 dark:text-gray-200">
 							Spécialiste en maladies cardiovasculaires.
 						</p>
 					</article>
@@ -528,16 +556,20 @@
 					<article
 						id="doctor-lucas-moreau"
 						data-search="Lucas Moreau pédiatre lyon"
-						class="bg-white rounded-lg shadow p-3 md:p-4 flex flex-col items-start"
+						class="bg-white dark:bg-gray-800 rounded-lg shadow p-3 md:p-4 flex flex-col items-start"
 					>
 						<img
 							src="assets/doctor2.png"
 							alt="Dr Lucas Moreau"
-							class="w-full h-48 md:h-64 object-contain object-center rounded-md mb-3 bg-gray-50"
+							class="w-full h-48 md:h-64 object-contain object-center rounded-md mb-3 bg-gray-50 dark:bg-gray-700"
 						/>
-						<h3 class="font-semibold text-sm md:text-base">Dr amine enafi</h3>
-						<p class="text-xs md:text-sm text-gray-600">Pédiatre — Rabat</p>
-						<p class="mt-2 text-xs md:text-sm text-gray-700">
+						<h3 class="font-semibold text-sm md:text-base dark:text-gray-100">
+							Dr amine enafi
+						</h3>
+						<p class="text-xs md:text-sm text-gray-600 dark:text-gray-300">
+							Pédiatre — Rabat
+						</p>
+						<p class="mt-2 text-xs md:text-sm text-gray-700 dark:text-gray-200">
 							Soins complets pour enfants et adolescents.
 						</p>
 					</article>
@@ -546,20 +578,20 @@
 					<article
 						id="doctor-sophie-bernard"
 						data-search="Sophie Bernard dermatologue marseille"
-						class="bg-white rounded-lg shadow p-3 md:p-4 flex flex-col items-start"
+						class="bg-white dark:bg-gray-800 rounded-lg shadow p-3 md:p-4 flex flex-col items-start"
 					>
 						<img
 							src="assets/doctor3.png"
 							alt="Dr Sophie Bernard"
-							class="w-full h-48 md:h-64 object-contain object-center rounded-md mb-3 bg-gray-50"
+							class="w-full h-48 md:h-64 object-contain object-center rounded-md mb-3 bg-gray-50 dark:bg-gray-700"
 						/>
-						<h3 class="font-semibold text-sm md:text-base">
+						<h3 class="font-semibold text-sm md:text-base dark:text-gray-100">
 							Dr asmae el khadraoui
 						</h3>
-						<p class="text-xs md:text-sm text-gray-600">
+						<p class="text-xs md:text-sm text-gray-600 dark:text-gray-300">
 							Dermatologue — Marrakech
 						</p>
-						<p class="mt-2 text-xs md:text-sm text-gray-700">
+						<p class="mt-2 text-xs md:text-sm text-gray-700 dark:text-gray-200">
 							Expertise en soins de la peau et traitements cosmétiques.
 						</p>
 					</article>
@@ -568,25 +600,29 @@
 					<article
 						id="doctor-antoine-durand"
 						data-search="Antoine Durand neurologue lille"
-						class="bg-white rounded-lg shadow p-3 md:p-4 flex flex-col items-start"
+						class="bg-white dark:bg-gray-800 rounded-lg shadow p-3 md:p-4 flex flex-col items-start"
 					>
 						<img
 							src="assets/doctor4.png"
 							alt="Dr Antoine Durand"
-							class="w-full h-48 md:h-64 object-contain object-center rounded-md mb-3 bg-gray-50"
+							class="w-full h-48 md:h-64 object-contain object-center rounded-md mb-3 bg-gray-50 dark:bg-gray-700"
 						/>
-						<h3 class="font-semibold text-sm md:text-base">
+						<h3 class="font-semibold text-sm md:text-base dark:text-gray-100">
 							Dr Hakim Alouani
 						</h3>
-						<p class="text-xs md:text-sm text-gray-600">Neurologue — Tanger</p>
-						<p class="mt-2 text-xs md:text-sm text-gray-700">
+						<p class="text-xs md:text-sm text-gray-600 dark:text-gray-300">
+							Neurologue — Tanger
+						</p>
+						<p class="mt-2 text-xs md:text-sm text-gray-700 dark:text-gray-200">
 							Diagnostique et prise en charge des troubles neurologiques.
 						</p>
 					</article>
 				</div>
 
 				<div class="max-w-6xl mx-auto mt-4 px-4">
-					<h2 class="text-xl md:text-2xl font-semibold mb-4 text-center">
+					<h2
+						class="text-xl md:text-2xl font-semibold mb-4 text-center dark:text-gray-100"
+					>
 						Articles Santé
 					</h2>
 				</div>
@@ -598,18 +634,20 @@
 					<article
 						id="article-hydratation"
 						data-search="hydration boire eau cœur santé"
-						class="bg-white rounded-lg shadow overflow-hidden"
+						class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden"
 					>
 						<img
 							src="assets/article1.png"
 							alt="Hydratation"
-							class="w-full h-40 md:h-56 object-contain object-center bg-gray-50"
+							class="w-full h-40 md:h-56 object-contain object-center bg-gray-50 dark:bg-gray-700"
 						/>
 						<div class="p-3 md:p-4">
-							<h3 class="font-semibold text-sm md:text-base">
+							<h3 class="font-semibold text-sm md:text-base dark:text-gray-100">
 								Rester hydraté pour un cœur sain
 							</h3>
-							<p class="text-xs md:text-sm text-gray-600 mt-1">
+							<p
+								class="text-xs md:text-sm text-gray-600 mt-1 dark:text-gray-300"
+							>
 								Bienfaits de l'eau et recommandations quotidiennes.
 							</p>
 						</div>
@@ -618,18 +656,20 @@
 					<article
 						id="article-checkups"
 						data-search="check-ups dépistage prévention santé"
-						class="bg-white rounded-lg shadow overflow-hidden"
+						class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden"
 					>
 						<img
 							src="assets/article2.png"
 							alt="Check-ups"
-							class="w-full h-40 md:h-56 object-contain object-center bg-gray-50"
+							class="w-full h-40 md:h-56 object-contain object-center bg-gray-50 dark:bg-gray-700"
 						/>
 						<div class="p-3 md:p-4">
-							<h3 class="font-semibold text-sm md:text-base">
+							<h3 class="font-semibold text-sm md:text-base dark:text-gray-100">
 								Les contrôles réguliers sauvent des vies
 							</h3>
-							<p class="text-xs md:text-sm text-gray-600 mt-1">
+							<p
+								class="text-xs md:text-sm text-gray-600 mt-1 dark:text-gray-300"
+							>
 								Pourquoi les examens de routine sont importants.
 							</p>
 						</div>
@@ -638,18 +678,20 @@
 					<article
 						id="article-nutrition"
 						data-search="nutrition alimentation équilibrée santé"
-						class="bg-white rounded-lg shadow overflow-hidden"
+						class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden"
 					>
 						<img
 							src="assets/article3.png"
 							alt="Nutrition"
-							class="w-full h-40 md:h-56 object-contain object-center bg-gray-50"
+							class="w-full h-40 md:h-56 object-contain object-center bg-gray-50 dark:bg-gray-700"
 						/>
 						<div class="p-3 md:p-4">
-							<h3 class="font-semibold text-sm md:text-base">
+							<h3 class="font-semibold text-sm md:text-base dark:text-gray-100">
 								Manger intelligent pour rester fort
 							</h3>
-							<p class="text-xs md:text-sm text-gray-600 mt-1">
+							<p
+								class="text-xs md:text-sm text-gray-600 mt-1 dark:text-gray-300"
+							>
 								Conseils pour une alimentation équilibrée.
 							</p>
 						</div>
@@ -658,18 +700,20 @@
 					<article
 						id="article-sommeil"
 						data-search="sommeil repos santé mental bien-être"
-						class="bg-white rounded-lg shadow overflow-hidden"
+						class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden"
 					>
 						<img
 							src="assets/article4.png"
 							alt="Sommeil"
-							class="w-full h-40 md:h-56 object-contain object-center bg-gray-50"
+							class="w-full h-40 md:h-56 object-contain object-center bg-gray-50 dark:bg-gray-700"
 						/>
 						<div class="p-3 md:p-4">
-							<h3 class="font-semibold text-sm md:text-base">
+							<h3 class="font-semibold text-sm md:text-base dark:text-gray-100">
 								Le sommeil et la santé mentale
 							</h3>
-							<p class="text-xs md:text-sm text-gray-600 mt-1">
+							<p
+								class="text-xs md:text-sm text-gray-600 mt-1 dark:text-gray-300"
+							>
 								L'importance du repos pour le bien-être global.
 							</p>
 						</div>
