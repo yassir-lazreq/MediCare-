@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="dist/output.css" rel="stylesheet" />
+		<title>MediCare</title>
+	</head>
+
+	<body class="bg-gray-100 font-sans">
+		<!-- Header -->
+
+		<header class="fixed top-0 left-0 z-50 w-full">
+			<nav
+				class="bg-blue-950 px-4 md:px-10 py-4 flex flex-wrap justify-between items-center shadow-md"
+			>
+				<!-- Logo -->
+				<a href="index.html">
+					<div class="flex items-center space-x-3 cursor-pointer">
+						<img
+							src="assets/health_logo.png"
+							alt="MediCare Logo"
+							class="h-10 w-10 md:h-12 md:w-12 object-contain"
+						/>
+						<span class="text-white text-lg md:text-xl font-bold">MediCare</span>
+					</div>
+				</a>
+				<!-- Search Bar -->
+				<div
+					class="relative max-w-xs w-1/2 md:w-2/3 lg:w-1/3 bg-amber-50 rounded-full"
+				>
+					<img
+						src="assets/search-icone.svg"
+						alt=""
+						aria-hidden="true"
+						class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 pointer-events-none"
+					/>
+					<input
+						type="search"
+						name="search"
+						placeholder="Search..."
+						class="block w-full pl-10 pr-3 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base"
+					/>
+				</div>
+
+				<div class="flex items-center space-x-4 md:space-x-6">
+					<!-- Light/Dark toggle -->
+					<div class="flex items-center">
+						<label
+							for="checkbox"
+							class="flex bg-gray-600 cursor-pointer relative w-14 h-7 md:w-16 md:h-8 rounded-full overflow-hidden"
+						>
+							<input type="checkbox" id="checkbox" class="sr-only peer" aria-label="Toggle dark mode" title="Toggle dark mode" role="switch" />
+							<div
+								class="w-6 h-6 md:w-8 md:h-8 bg-white rounded-full shadow-md transform peer-checked:translate-x-7 md:peer-checked:translate-x-8 transition-transform duration-300 ease-in-out"
+							></div>
+							<div
+								class="absolute left-0 top-0 w-full h-full flex items-center justify-between px-1 md:px-2 text-gray-200 text-sm"
+							>
+								<img
+									src="assets/sun-icone.svg"
+									alt="Light mode"
+									class="w-3 h-3 md:w-4 md:h-4"
+									aria-hidden="true"
+								/>
+								<img
+									src="assets/moon-icone.svg"
+									alt="Dark mode"
+									class="w-3 h-3 md:w-4 md:h-4"
+									aria-hidden="true"
+								/>
+							</div>
+						</label>
+					</div>
+
+					<!-- burger menu -->
+					<div class="lg:hidden">
+						<button id="burger" type="button" class="text-white focus:outline-none cursor-pointer" aria-label="Open menu" title="Open menu">
+							<span class="sr-only">Open menu</span>
+							<span
+								class="block w-5 h-0.5 md:w-6 md:h-0.5 bg-white mb-1 md:mb-1.5"
+								aria-hidden="true"
+							></span>
+							<span
+								class="block w-5 h-0.5 md:w-6 md:h-0.5 bg-white mb-1 md:mb-1.5"
+								aria-hidden="true"
+							></span>
+							<span class="block w-5 h-0.5 md:w-6 md:h-0.5 bg-white" aria-hidden="true"></span>
+						</button>
+					</div>
+
+					<!-- Navigation links -->
+					<div class="hidden lg:block">
+						<ul
+							class="flex space-x-4 md:space-x-6 text-white font-semibold items-center text-sm md:text-base"
+						>
+							<li>
+								<a href="index.html" class="hover:text-amber-300">home</a>
+							</li>
+							<li>
+								<a href="pages/Médecins.html" class="hover:text-amber-300"
+									>médecins</a
+								>
+							</li>
+							<li>
+								<a href="pages/Rendez-vous.html" class="hover:text-amber-300"
+									>réservations</a
+								>
+							</li>
+							<li>
+								<a href="pages/Suivi.html" class="hover:text-amber-300"
+									>suivi</a
+								>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+			<!-- Mobile Menu -->
+			<div id="mobile-menu" class="hidden lg:hidden cursor-pointer bg-blue-900">
+				<ul class="flex flex-col space-y-4 p-6 text-white font-semibold">
+					<li>
+						<a href="index.html" class="block py-2 hover:text-amber-300"
+							>home</a
+						>
+					</li>
+					<li>
+						<a
+							href="pages/Médecins.html"
+							class="block py-2 hover:text-amber-300"
+							>médecins</a
+						>
+					</li>
+					<li>
+						<a
+							href="pages/Rendez-vous.html"
+							class="block py-2 hover:text-amber-300"
+							>réservations</a
+						>
+					</li>
+					<li>
+						<a href="pages/Suivi.html" class="block py-2 hover:text-amber-300"
+							>suivi</a
+						>
+					</li>
+				</ul>
+			</div>
+		</header>
+
+		<main class="mt-16 md:mt-20">
+			<!-- Hero Section -->
+
+			<section
+				class="relative bg-cover bg-center h-[600px] md:h-[90vh] flex items-center"
+				style="background-image: url('assets/hero-image.png')"
+			>
+				<div class="absolute inset-0 bg-blue-950/40"></div>
+
+				<div class="relative z-10 px-4 md:pl-32 text-white max-w-3xl">
+					<h1 class="text-4xl md:text-7xl font-bold leading-tight mb-4 md:mb-6">
+						Your Health<br />Our Care
+					</h1>
+					<p class="text-base md:text-2xl mb-6 md:mb-8">
+						Empowering you to live healthier every day with trusted doctors,<br
+							class="hidden md:block"
+						/>
+						smart tracking, and personalized wellness support.
+					</p>
+					<button
+						class="px-6 py-3 bg-blue-700 text-white rounded-full cursor-pointer hover:bg-blue-900 transition duration-300 font-semibold text-sm md:text-base"
+					>
+						Get Started
+					</button>
+				</div>
+			</section>
+
+			<!-- Health Carousel -->
+
+			<section
+				id="health-carousel"
+				class="relative w-[90%] md:w-[80%] mx-auto my-6 md:my-12 rounded-2xl md:rounded-3xl overflow-hidden"
+				data-carousel="slide"
+			>
+				<!--slide 1-->
+				<div
+					class="hidden h-56 md:h-[450px] overflow-hidden rounded-lg"
+					data-carousel-item
+				>
+					<div
+						class="absolute inset-0"
+						style="
+							background-image: url('assets/health-1.png');
+							background-size: cover;
+							background-position: center;
+							background-repeat: no-repeat;
+						"
+					></div>
+					<div
+						class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-center text-white px-4 md:px-6"
+					>
+						<h2 class="text-xl md:text-3xl font-bold">
+							Stay hydrated for a healthier heart
+						</h2>
+						<p class="mt-2 text-xs md:text-base">
+							Drinking enough water is essential for maintaining heart health
+							and well-being.
+						</p>
+					</div>
+				</div>
+
+				<!--slide 2-->
+				<div
+					class="hidden h-56 md:h-[450px] overflow-hidden rounded-lg"
+					data-carousel-item
+				>
+					<div
+						class="absolute inset-0"
+						style="
+							background-image: url('assets/health-2.png');
+							background-size: cover;
+							background-position: center;
+							background-repeat: no-repeat;
+						"
+					></div>
+					<div
+						class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-center text-white px-4 md:px-6"
+					>
+						<h2 class="text-xl md:text-3xl font-bold">
+							Regular check-ups prevent big health problems.
+						</h2>
+						<p class="mt-2 text-xs md:text-base">
+							Routine screenings can catch potential issues early, leading to
+							better outcomes.
+						</p>
+					</div>
+				</div>
+
+				<!--slide 3-->
+				<div
+					class="hidden h-56 md:h-[450px] overflow-hidden rounded-lg"
+					data-carousel-item
+				>
+					<div
+						class="absolute inset-0"
+						style="
+							background-image: url('assets/health-3.png');
+							background-size: cover;
+							background-position: center;
+							background-repeat: no-repeat;
+						"
+					></div>
+					<div
+						class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-center text-white px-4 md:px-6"
+					>
+						<h2 class="text-xl md:text-3xl font-bold">
+							Eat Smart, Stay Strong
+						</h2>
+						<p class="mt-2 text-xs md:text-base">
+							A balanced diet is key to maintaining heart health and overall
+							well-being.
+						</p>
+					</div>
+				</div>
+
+				<!--slide 4-->
+				<div
+					class="hidden h-56 md:h-[450px] overflow-hidden rounded-lg"
+					data-carousel-item
+				>
+					<div
+						class="absolute inset-0"
+						style="
+							background-image: url('assets/health-4.png');
+							background-size: cover;
+							background-position: center;
+							background-repeat: no-repeat;
+						"
+					></div>
+					<div
+						class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-center text-white px-4 md:px-6"
+					>
+						<h2 class="text-xl md:text-3xl font-bold">
+							Your mental health matters — take time to rest.
+						</h2>
+						<p class="mt-2 text-xs md:text-base">
+							Prioritizing mental well-being is essential for a balanced and
+							healthy life.
+						</p>
+					</div>
+				</div>
+
+				<!-- Carousel Navigation Dots -->
+
+				<div
+					class="absolute z-30 flex -translate-x-1/2 bottom-3 md:bottom-5 left-1/2 space-x-2 md:space-x-3"
+				>
+					<button
+						type="button"
+						class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50"
+						data-carousel-slide-to="0"
+						aria-label="Go to slide 1"
+						title="Go to slide 1"
+					></button>
+					<button
+						type="button"
+						class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50"
+						data-carousel-slide-to="1"
+						aria-label="Go to slide 2"
+						title="Go to slide 2"
+					></button>
+					<button
+						type="button"
+						class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50"
+						data-carousel-slide-to="2"
+						aria-label="Go to slide 3"
+						title="Go to slide 3"
+					></button>
+					<button
+						type="button"
+						class="w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/50"
+						data-carousel-slide-to="3"
+						aria-label="Go to slide 4"
+						title="Go to slide 4"
+					></button>
+				</div>
+
+				<!-- Carousel Navigation Buttons -->
+
+				<button
+					type="button"
+					class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-2 md:px-4 group"
+					data-carousel-prev
+					aria-label="Previous slide"
+					title="Previous slide"
+				>
+					<span
+						class="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/40 group-hover:bg-white/60"
+					>
+						<svg
+							class="w-3 h-3 md:w-4 md:h-4 text-gray-800 rtl:rotate-180"
+							fill="none"
+							viewBox="0 0 6 10"
+						>
+							<path
+								stroke="currentColor"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M5 1 1 5l4 4"
+							/>
+						</svg>
+					</span>
+				</button>
+				<button
+					type="button"
+					class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-2 md:px-4 group"
+					data-carousel-next
+					aria-label="Next slide"
+					title="Next slide"
+				>
+					<span
+						class="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/40 group-hover:bg-white/60"
+					>
+						<svg
+							class="w-3 h-3 md:w-4 md:h-4 text-gray-800"
+							fill="none"
+							viewBox="0 0 6 10"
+						>
+							<path
+								stroke="currentColor"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="m1 9 4-4-4-4"
+							/>
+						</svg>
+					</span>
+				</button>
+			</section>
+
+			<section class="mt-8 md:mt-12 my-8 md:my-16 text-center">
+				<div class="max-w-6xl mx-auto px-4">
+					<h2 class="text-2xl md:text-4xl font-bold mb-4">
+						Why Choose MediCare?
+					</h2>
+					<p class="text-base md:text-xl">
+						MediCare is dedicated to providing the best healthcare services
+						tailored to your needs.
+					</p>
+				</div>
+				<!--cards section-->
+				<div
+					class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 md:w-10/12 md:mx-auto mt-6 md:mt-8 px-4"
+				>
+					<!--card 1-->
+
+					<div
+						class="rounded-lg p-4 md:p-6 h-48 md:h-60 flex flex-col justify-center shadow-md cursor-pointer transition-transform duration-200 hover:-translate-y-1 md:hover:-translate-y-2 hover:scale-105 filter hover:brightness-105 border border-white/6"
+						style="
+							background-image:
+								linear-gradient(rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.55)),
+								url('assets/card1.png');
+							background-size: cover;
+							background-position: center;
+							background-repeat: no-repeat;
+						"
+					>
+						<h3
+							class="text-lg md:text-xl font-semibold mb-2 text-white drop-shadow"
+						>
+							Soins personnalisés
+						</h3>
+						<p class="text-white/90 text-sm md:text-base">
+							Nous offrons des soins personnalisés pour répondre aux besoins
+							uniques de chaque patient.
+						</p>
+					</div>
+
+					<!--card 2-->
+
+					<div
+						class="rounded-lg p-4 md:p-6 h-48 md:h-60 flex flex-col justify-center shadow-md cursor-pointer transition-transform duration-200 hover:-translate-y-1 md:hover:-translate-y-2 hover:scale-105 filter hover:brightness-105 border border-white/6"
+						style="
+							background-image:
+								linear-gradient(rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.55)),
+								url('assets/card2.png');
+							background-size: cover;
+							background-position: center;
+							background-repeat: no-repeat;
+						"
+					>
+						<h3
+							class="text-lg md:text-xl font-semibold mb-2 text-white drop-shadow"
+						>
+							Équipe d'experts
+						</h3>
+						<p class="text-white/90 text-sm md:text-base">
+							Notre équipe d'experts est dédiée à fournir des soins de la plus
+							haute qualité.
+						</p>
+					</div>
+
+					<!--card 3-->
+
+					<div
+						class="rounded-lg p-4 md:p-6 h-48 md:h-60 flex flex-col justify-center shadow-md cursor-pointer transition-transform duration-200 hover:-translate-y-1 md:hover:-translate-y-2 hover:scale-105 filter hover:brightness-105 border border-white/6"
+						style="
+							background-image:
+								linear-gradient(rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.55)),
+								url('assets/card3.png');
+							background-size: cover;
+							background-position: center;
+							background-repeat: no-repeat;
+						"
+					>
+						<h3
+							class="text-lg md:text-xl font-semibold mb-2 text-white drop-shadow"
+						>
+							Technologie avancée
+						</h3>
+						<p class="text-white/90 text-sm md:text-base">
+							Nous utilisons les dernières technologies pour garantir les
+							meilleurs résultats pour nos patients.
+						</p>
+					</div>
+
+					<!--card 4-->
+
+					<div
+						class="rounded-lg p-4 md:p-6 h-48 md:h-60 flex flex-col justify-center shadow-md cursor-pointer transition-transform duration-200 hover:-translate-y-1 md:hover:-translate-y-2 hover:scale-105 filter hover:brightness-105 border border-white/6"
+						style="
+							background-image:
+								linear-gradient(rgba(2, 6, 23, 0.55), rgba(2, 6, 23, 0.55)),
+								url('assets/card4.png');
+							background-size: cover;
+							background-position: center;
+							background-repeat: no-repeat;
+						"
+					>
+						<h3
+							class="text-lg md:text-xl font-semibold mb-2 text-white drop-shadow"
+						>
+							Support 24/7
+						</h3>
+						<p class="text-white/90 text-sm md:text-base">
+							Notre équipe de support est disponible 24/7 pour répondre à toutes
+							vos questions et préoccupations.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- doctors and articles section -->
+			<section class="py-6 md:py-8">
+				<div class="max-w-6xl mx-auto px-4">
+					<h2 class="text-xl md:text-2xl font-semibold mb-4 text-center">
+						Nos Médecins
+					</h2>
+				</div>
+
+				<!-- Doctors Grid -->
+				<div
+					class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 px-4 mb-8 md:mb-10"
+				>
+
+					<!--doctor 1-->
+					<article
+						id="doctor-amelie-roux"
+						data-search="Amélie Roux cardiologue paris"
+						class="bg-white rounded-lg shadow p-3 md:p-4 flex flex-col items-start"
+					>
+						<img
+							src="assets/doctor1.png"
+							alt="Dr Amélie Roux"
+							class="w-full h-48 md:h-64 object-contain object-center rounded-md mb-3 bg-gray-50"
+						/>
+						<h3 class="font-semibold text-sm md:text-base">Dr Amélie Roux</h3>
+						<p class="text-xs md:text-sm text-gray-600">Cardiologue — Casablanca</p>
+						<p class="mt-2 text-xs md:text-sm text-gray-700">
+							Spécialiste en maladies cardiovasculaires.
+						</p>
+					</article>
+
+					<!--doctor 2-->
+					<article
+						id="doctor-lucas-moreau"
+						data-search="Lucas Moreau pédiatre lyon"
+						class="bg-white rounded-lg shadow p-3 md:p-4 flex flex-col items-start"
+					>
+						<img
+							src="assets/doctor2.png"
+							alt="Dr Lucas Moreau"
+							class="w-full h-48 md:h-64 object-contain object-center rounded-md mb-3 bg-gray-50"
+						/>
+						<h3 class="font-semibold text-sm md:text-base">Dr amine enafi</h3>
+						<p class="text-xs md:text-sm text-gray-600">Pédiatre — Rabat</p>
+						<p class="mt-2 text-xs md:text-sm text-gray-700">
+							Soins complets pour enfants et adolescents.
+						</p>
+					</article>
+
+					<!--doctor 3-->
+					<article
+						id="doctor-sophie-bernard"
+						data-search="Sophie Bernard dermatologue marseille"
+						class="bg-white rounded-lg shadow p-3 md:p-4 flex flex-col items-start"
+					>
+						<img
+							src="assets/doctor3.png"
+							alt="Dr Sophie Bernard"
+							class="w-full h-48 md:h-64 object-contain object-center rounded-md mb-3 bg-gray-50"
+						/>
+						<h3 class="font-semibold text-sm md:text-base">
+							Dr asmae el khadraoui
+						</h3>
+						<p class="text-xs md:text-sm text-gray-600">
+							Dermatologue — Marrakech
+						</p>
+						<p class="mt-2 text-xs md:text-sm text-gray-700">
+							Expertise en soins de la peau et traitements cosmétiques.
+						</p>
+					</article>
+
+					<!--doctor 4-->
+					<article
+						id="doctor-antoine-durand"
+						data-search="Antoine Durand neurologue lille"
+						class="bg-white rounded-lg shadow p-3 md:p-4 flex flex-col items-start"
+					>
+						<img
+							src="assets/doctor4.png"
+							alt="Dr Antoine Durand"
+							class="w-full h-48 md:h-64 object-contain object-center rounded-md mb-3 bg-gray-50"
+						/>
+						<h3 class="font-semibold text-sm md:text-base">
+							Dr Hakim Alouani
+						</h3>
+						<p class="text-xs md:text-sm text-gray-600">Neurologue — Tanger</p>
+						<p class="mt-2 text-xs md:text-sm text-gray-700">
+							Diagnostique et prise en charge des troubles neurologiques.
+						</p>
+					</article>
+				</div>
+
+				<div class="max-w-6xl mx-auto mt-4 px-4">
+					<h2 class="text-xl md:text-2xl font-semibold mb-4 text-center">
+						Articles Santé
+					</h2>
+				</div>
+
+				<!-- Articles Grid -->
+				<div
+					class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 px-4"
+				>
+					<article
+						id="article-hydratation"
+						data-search="hydration boire eau cœur santé"
+						class="bg-white rounded-lg shadow overflow-hidden"
+					>
+						<img
+							src="assets/article1.png"
+							alt="Hydratation"
+							class="w-full h-40 md:h-56 object-contain object-center bg-gray-50"
+						/>
+						<div class="p-3 md:p-4">
+							<h3 class="font-semibold text-sm md:text-base">
+								Rester hydraté pour un cœur sain
+							</h3>
+							<p class="text-xs md:text-sm text-gray-600 mt-1">
+								Bienfaits de l'eau et recommandations quotidiennes.
+							</p>
+						</div>
+					</article>
+
+					<article
+						id="article-checkups"
+						data-search="check-ups dépistage prévention santé"
+						class="bg-white rounded-lg shadow overflow-hidden"
+					>
+						<img
+							src="assets/article2.png"
+							alt="Check-ups"
+							class="w-full h-40 md:h-56 object-contain object-center bg-gray-50"
+						/>
+						<div class="p-3 md:p-4">
+							<h3 class="font-semibold text-sm md:text-base">
+								Les contrôles réguliers sauvent des vies
+							</h3>
+							<p class="text-xs md:text-sm text-gray-600 mt-1">
+								Pourquoi les examens de routine sont importants.
+							</p>
+						</div>
+					</article>
+
+					<article
+						id="article-nutrition"
+						data-search="nutrition alimentation équilibrée santé"
+						class="bg-white rounded-lg shadow overflow-hidden"
+					>
+						<img
+							src="assets/article3.png"
+							alt="Nutrition"
+							class="w-full h-40 md:h-56 object-contain object-center bg-gray-50"
+						/>
+						<div class="p-3 md:p-4">
+							<h3 class="font-semibold text-sm md:text-base">
+								Manger intelligent pour rester fort
+							</h3>
+							<p class="text-xs md:text-sm text-gray-600 mt-1">
+								Conseils pour une alimentation équilibrée.
+							</p>
+						</div>
+					</article>
+
+					<article
+						id="article-sommeil"
+						data-search="sommeil repos santé mental bien-être"
+						class="bg-white rounded-lg shadow overflow-hidden"
+					>
+						<img
+							src="assets/article4.png"
+							alt="Sommeil"
+							class="w-full h-40 md:h-56 object-contain object-center bg-gray-50"
+						/>
+						<div class="p-3 md:p-4">
+							<h3 class="font-semibold text-sm md:text-base">
+								Le sommeil et la santé mentale
+							</h3>
+							<p class="text-xs md:text-sm text-gray-600 mt-1">
+								L'importance du repos pour le bien-être global.
+							</p>
+						</div>
+					</article>
+				</div>
+			</section>
+		</main>
+
+		<footer class="bg-[#0b1320] text-white py-6 md:py-8">
+			<div
+				class="max-w-2xl h-12 md:h-16 flex justify-center text-center items-center mx-auto"
+			>
+				<p class="text-sm md:text-base">
+					&copy; 2023 MediCare. Tous droits réservés.
+				</p>
+			</div>
+		</footer>
+
+		<script src="script/carousel.js"></script>
+		<script src="script/dark-mode.js"></script>
+		<script src="script/nav-bar.js"></script>
+	</body>
+</html>
