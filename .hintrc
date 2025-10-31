@@ -9,6 +9,21 @@
         "list": "off"
       }
     ],
-    "no-inline-styles": "off"
-  }
+    "no-inline-styles": "off",
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "text-size-adjust",
+          "background-color: color-mix(in srgb, #000 60%, transparent)",
+          "border-color: color-mix(in srgb, #fff 60%, transparent)"
+        ]
+      }
+    ]
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not chrome <= 109"
+  ]
 }
